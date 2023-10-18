@@ -78,7 +78,9 @@ function getURLsFromHTML(htmlBody, baseURL) {
 
 function normalizeURL(urlString) {
   const urlObj = new URL(urlString);
+  //strip or remove the protocol
   const hostPath = `${urlObj.hostname}${urlObj.pathname}`;
+  //if there is a slash at the end of the URL, remove it
   if (hostPath.length > 0 && hostPath.slice(-1) === '/') {
     return hostPath.slice(0, -1);
   }
